@@ -1,0 +1,12 @@
+.Header{
+    padding-left: unset;
+    padding-right: unset;
+    margin: 15px auto;
+}
+.Header h1{
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0;
+    box-shadow: 0 0 5px blue;
+}

@@ -1,0 +1,28 @@
+.ContactSearch .search{
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+    align-items: center;
+    border:1px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10px auto;
+}
+.ContactSearch .search > *{
+    border:none;
+    outline: none;
+    font-size: 17px;
+    padding: 8px;
+}
+.ContactSearch .search > i{
+    padding-right: 0;
+}
+.ContactSearch input{
+    width:70%;
+}
+.ContactSearch button{
+    background: #ccccff;
+    color:#000;
+    font-weight: bold;
+    cursor: pointer;
+}

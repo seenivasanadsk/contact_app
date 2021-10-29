@@ -1,0 +1,96 @@
+.ContactForm{
+    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px auto;
+}
+.ContactForm .field{
+    margin:20px auto;
+}
+.ContactForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.ContactForm input{
+    width:100%;
+    font-size: 16px;
+    padding: 10px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+.ContactForm input:focus{
+    box-shadow: 0 0 0 3px rgb(100,150,255);
+}
+
+.ContactForm #image{
+    display: none;
+}
+
+.ContactForm img{
+    width: 100%;
+    min-height: 200px;
+    object-fit: cover;
+    max-height: 30vw;
+    min-width: 100%;
+    border-radius: 5px;
+    background: #eee;
+    border:1px solid #000;
+    overflow: hidden;
+    object-position: top;
+}
+
+.ContactForm .image{
+    position: relative;
+}
+.ContactForm .image div{
+    cursor: pointer;    
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+}
+.ContactForm .image div span:first-child{
+    border:5px solid black;
+    border-radius: 50%;
+    width:100px;
+    height: 100px;
+    font-size: 100px;
+    display: block;
+    line-height: 100px;
+    margin-bottom: 10px;
+}
+
+.ContactForm .image div span:nth-child(2){
+    font-size: 20px;
+}
+
+.ContactForm .image > span{
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 0 10px black;
+    position: absolute;
+    top:10px;
+    right: 10px;
+    border-radius: 50%;
+    background:#fff;
+    width:30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+.ContactForm #cancelBtn{
+    background: lightgrey;
+    color: #000;
+    margin-left: 10px;
+}
+.ContactForm .field .Error{
+    color:red;
+    font-weight: bold;
+    margin-top: 8px;
+}
+.btn{
+    display: flex;
+}

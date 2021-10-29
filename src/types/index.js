@@ -1,0 +1,8 @@
+export const FETCH_CONTACT = "FETCH_CONTACT";
+export const SEARCH_CONTACT = "SEARCH_CONTACT";
+export const SEARCH_CANCEL = "SEARCH_CANCEL";
+export const ADD_CONTACT = "ADD_CONTACT";
+export const VIEW_CONTACT = "VIEW_CONTACT";
+export const EDIT_CONTACT = "EDIT_CONTACT";
+export const CONTACT_CANCEL = "CONTACT_CANCEL";
+export const DELETE_CONTACT = "DELETE_CONTACT";

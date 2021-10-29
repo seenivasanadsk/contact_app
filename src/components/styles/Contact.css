@@ -1,0 +1,9 @@
+.Contact{
+    height: calc(100vh - 90px);
+    box-shadow: 0 0 5px blue;
+    border-radius: 5px;
+}
+.Contact > .row > .col-md-6{
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+}

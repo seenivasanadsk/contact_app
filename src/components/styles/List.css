@@ -1,0 +1,58 @@
+.List .people{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.List .item{
+    position: relative;
+}
+.List .item:hover{
+    background: #eee;
+}
+.List .people .img{
+    /* border: 1px solid red; */
+    padding: 10px;
+}
+.List .people img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    background: #ddd;
+}
+.List .people .content{
+    padding-left: 10px;
+}
+.List .people .name{
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+.List .people .email{
+    font-size: 13px;
+    color: #333;
+    color: rgba(0,0,0,.7);
+}
+.List .action i{
+    width:35px;
+    height: 35px;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,.5);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    display: inline-block;
+}
+.List .action i:first-child{
+    margin: 0 10px 0 0;
+}
+.List .action{
+    position: absolute;
+    right:10px;
+    top:50%;
+    transform: translateY(-50%);
+}

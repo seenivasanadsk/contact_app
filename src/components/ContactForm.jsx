@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CONTACT_CANCEL, FETCH_CONTACT } from '../types'
 import './styles/ContactForm.css'
+import DB from '../Dexie'
 
 class ContactForm extends Component {
     constructor(props) {
@@ -92,20 +93,31 @@ class ContactForm extends Component {
         if (nameError || phoneError) {
             this.setState({ nameError, phoneError })
         } else {
-            let data = new FormData()
-            data.append('image', this.state.image)
-            data.append('name', this.state.name)
-            data.append('id', this.state.id)
-            data.append('phone', this.state.phone)
-            data.append('email', this.state.email)
-            data.append('type', this.state.type)
-            fetch("http://localhost/seeni/contactApp/back.php", {
-                method: "post",
-                body: data
-            }).then(x => x.text()).then(x => {
+            if (this.state.type === "Save") {
+                let newData = {
+                    name: this.state.name,
+                    email: this.state.email,
+                    phone: this.state.phone,
+                    imageUrl: this.state.imageData,
+                }
+                let contactDb = new DB;
+                contactDb.addData(newData);
                 this.props.updateList();
                 this.props.cancelBtn();
-            });
+            }
+            else if (this.state.type === "Update") {
+                let id = this.state.id
+                let newData = {
+                    name: this.state.name,
+                    email: this.state.email,
+                    phone: this.state.phone,
+                    imageUrl: this.state.imageData,
+                }
+                let contactDb = new DB;
+                contactDb.updateData(id,newData);
+                this.props.updateList();
+                this.props.cancelBtn();
+            }
         }
     }
 
@@ -154,9 +166,8 @@ class ContactForm extends Component {
 const mapDispatchToProps = dispatch => ({
     cancelBtn: () => dispatch({ type: CONTACT_CANCEL }),
     updateList: () => {
-        fetch('http://localhost/seeni/contactApp/back.php').then(res => res.json()).then(res => {
-            dispatch({ type: FETCH_CONTACT, payload: res })
-        })
+        let contactDb = new DB;
+        contactDb.viewData(data => dispatch({type:FETCH_CONTACT,payload:data}));
     }
 })
 

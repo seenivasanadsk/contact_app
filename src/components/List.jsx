@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { EDIT_CONTACT, VIEW_CONTACT , FETCH_CONTACT} from '../types'
 import './styles/List.css'
+import DB from '../Dexie'
 
 class List extends Component {
     constructor(props) {
@@ -18,14 +19,9 @@ class List extends Component {
     }
 
     deleteContact = e => {
-        let targetId = e.target.getAttribute('getID')
-        let form = new FormData();
-        form.append('type','Delete');
-        form.append('id',targetId);
-        fetch('http://localhost/seeni/contactApp/back.php', {
-            method: "post",
-            body: form
-        }).then(x => this.props.updateList())
+        let contactDb = new DB
+        contactDb.deleteData(e.target.getAttribute('getid'))
+        this.props.updateList()
     }
 
     render() {
@@ -63,9 +59,8 @@ const mapDispatchToProps = dispatch => ({
     viewContact: val => dispatch({ type: VIEW_CONTACT, payload: val }),
     editContact: e => dispatch({ type: EDIT_CONTACT, payload: e.target.getAttribute('getID') }),
     updateList: () => {
-        fetch('http://localhost/seeni/contactApp/back.php').then(res => res.json()).then(res => {
-            dispatch({ type: FETCH_CONTACT, payload: res })
-        })
+        let contactDb = new DB;
+        contactDb.viewData(data => dispatch({type:FETCH_CONTACT,payload:data}));
     }
 })
 

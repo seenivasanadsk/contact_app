@@ -1,39 +1,13 @@
 import List from './List'
 import './styles/ContactList.css'
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { FETCH_CONTACT } from '../types'
-import data from './../data.json';
 
-class ContactList extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            contactList: []
-        }
-    }
-
-    render() {
-        return (
-            <div className='ContactList'>
-                <List contactList={this.state.contactList} />
-            </div>
-        )
-    }
-
-    componentDidMount() {
-        this.props.fetchContact()
-    }
+function ContactList(props) {
+    return (
+        <div className='ContactList'>
+            <List />
+        </div>
+    )
 }
 
-const mapDispatchToProps = dispatch => ({
-    fetchContact: () => {
-        let res = data
-        if(localStorage.data){
-            res = JSON.parse(localStorage.data)
-        }
-        dispatch({ type: FETCH_CONTACT, payload: res })
-    }
-})
-
-export default connect(null, mapDispatchToProps)(ContactList)
+export default ContactList

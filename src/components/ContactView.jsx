@@ -13,7 +13,7 @@ function ContactView(props) {
                         : props.addContact ? <ContactForm type='Save' />
                             : (
                                 <>
-                                    <ContactManage class="d-md-none" />
+                                    <ContactManage class="d-md-none"/>                                   
                                     <div className="noView d-none d-md-flex">
                                         <div className="content">
                                             You have not selected any contact.

@@ -1,13 +1,14 @@
 import { ADD_CONTACT, CONTACT_CANCEL, EDIT_CONTACT, FETCH_CONTACT, SEARCH_CANCEL, SEARCH_CONTACT, VIEW_CONTACT } from "../types";
 
 const initialState = {
+    mainContact: [],
     contactList: []
 }
 
+
 export default (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_CONTACT:
-            console.log(typeof action.payload)
+        case FETCH_CONTACT:           
             return {
                 ...state,
                 mainContact: action.payload,
